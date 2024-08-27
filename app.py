@@ -33,12 +33,21 @@ def load_lottie(url):  # test url if you want to use your own lottie file 'valid
 
 model = joblib.load(open("breastCancerClasifier", 'rb'))
 
+# Load the scaler
+scaler = joblib.load('scaler.joblib')
+
 
 def predict(radius_mean, concavity_mean, concavity_worst,	radius_se,	compactness_mean,	compactness_worst,	texture_mean,	smoothness_worst,	smoothness_mean, concavity_se,	concave_points_se,	symmetry_worst,	fractal_dimension_mean):
 
-    features = np.array([radius_mean, concavity_mean, concavity_worst,	radius_se,	compactness_mean,	compactness_worst,	texture_mean,
-                        smoothness_worst,	smoothness_mean, concavity_se,	concave_points_se,	symmetry_worst,	fractal_dimension_mean]).reshape(1, -1)
-    prediction = model.predict(features)
+    # Create the feature array
+    features = np.array([radius_mean, concavity_mean, concavity_worst, radius_se, compactness_mean, compactness_worst, texture_mean,
+                        smoothness_worst, smoothness_mean, concavity_se, concave_points_se, symmetry_worst, fractal_dimension_mean]).reshape(1, -1)
+
+    # Scale the features using the loaded scaler
+    scaled_features = scaler.transform(features)
+
+    # Make the prediction using the scaled features
+    prediction = round(model.predict(scaled_features)[0])
     return prediction
 
 
@@ -59,11 +68,6 @@ if choose == 'Home':
     st.write('# Breast Cancer Classifier')
     st.write('---')
     st.subheader('Enter the details to classify the cancer')
-    # education_num = st.slider(
-    #     "Enter your education number (1-16):", min_value=1, max_value=16, value=8, step=1)
-    # radio buttons
-    # gender = st.radio("Select the gender:", ('Male', 'Female'))
-    # gender_encoding = 1 if gender == 'Male' else 0
 
     # User input
     radius_mean = st.number_input(
@@ -98,13 +102,14 @@ if choose == 'Home':
                                 texture_mean,	smoothness_worst,	smoothness_mean, concavity_se,	concave_points_se,	symmetry_worst,	fractal_dimension_mean)
 
     if st.button("Predict"):
+        print(sample_prediction)
         if sample_prediction == 0:
             st.warning("Predicted Cancer: B")
             st.write("This indicates a Benign Cancer.")
         elif sample_prediction == 1:
             st.success("Predicted Cancer: M")
             st.write("This indicates a Malignant Cancer.")
-            st.balloons()
+            # st.balloons()
 
 
 elif choose == 'About':
