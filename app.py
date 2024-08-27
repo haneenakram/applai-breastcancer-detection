@@ -111,13 +111,10 @@ if choose == 'Home':
             st.write("This indicates a Malignant Cancer.")
             # st.balloons()
 
-
 elif choose == 'About':
     st.write('# About Page')
     st.write('---')
-    st.write("🎯💡 Welcome to cancer  Classification Deployment! We specialize in providing advanced cancer classification solutions that help individuals understand their disease better. Our data-driven approach combines analytics.  ✨🚀 Partner with us to unlock the power of cancer classification . Contact us today to learn more. 📞📧")
-    st.image("5355919-removebg-preview.png")
-
+    st.write("🎯💡 Welcome to our Breast Cancer Classification AI project! Our mission is to leverage cutting-edge artificial intelligence to aid in the early detection and accurate classification of breast cancer, ultimately contributing to better patient outcomes and advancing medical research.Our VisionWe envision a world where advanced technology empowers healthcare professionals to make more informed decisions, leading to earlier diagnoses and more effective treatments for breast cancer patients. . Contact us today to learn more. 📞📧")
 
 elif choose == "Contact":
     st.write('# Contact Us')
@@ -133,33 +130,21 @@ elif choose == "Contact":
             st.write(
                 'Thanks for your contacting us. We will respond to your questions or inquiries as soon as possible!')
 
-
 elif choose == 'Graphs':
     st.write('# Breast cancer Classifier Graphs')
     st.write('---')
     # st.set_option('deprecation.showPyplotGlobalUse', False)
-    st.write("## removed features that have high colleration with each others:")
+    st.write("### removing features that have high colleration with each others:")
     st.image("heatmap.png")
-    # st.write("## Race vs Income Graph:")
-    # st.image("output2.png")
-    # st.write("## Income Vs Gender Graph:")
-    # st.image("output3.png")
-    # st.write("## Age Period Graph")
-    # st.image("output4.png")
-    # st.write("## Age period Vs Gender Graph")
-    # st.image("output5.png")
-    # st.write("## Age Period Vs Income Graph")
-    # st.image("output6.png")
-    # st.write("## Workclass Vs Income Graph")
-    # st.image("output7.png")
-    # st.write("## Education Vs Income Graph")
-    # st.image("output8.png")
-    # st.write("## Occupation Vs Income Graph")
-    # st.image("output9.png")
-    # st.write("## Working Hours Period Graph")
-    # st.image("output10.png")
-    # st.write("## Age Period Vs Working Hours Period Graph")
-    # st.image("output11.png")
+    st.write("### after dropping the highly collerated columns")
+    st.image("after-dropping.png")
+    st.write("## Selecting the more important features")
+    st.write("### descending order of the most affecting features on the diognose")
+    st.image("features-barchart.png")
+    st.write("### the most important features for diognose predection")
+    st.image("features-boxplot.png")
+    st.write("## Models accuracy comparision")
+    st.image("models-comparision.png")
 
     data = pd.read_csv('breast-cancer.csv')
     # Create a DataFrame
