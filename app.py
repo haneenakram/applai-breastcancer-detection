@@ -137,7 +137,7 @@ elif choose == "Contact":
 elif choose == 'Graphs':
     st.write('# Breast cancer Classifier Graphs')
     st.write('---')
-    st.set_option('deprecation.showPyplotGlobalUse', False)
+    # st.set_option('deprecation.showPyplotGlobalUse', False)
     st.write("## removed features that have high colleration with each others:")
     st.image("heatmap.png")
     # st.write("## Race vs Income Graph:")
