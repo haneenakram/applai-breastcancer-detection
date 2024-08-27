@@ -115,7 +115,7 @@ if choose == 'Home':
 elif choose == 'About':
     st.write('# About Page')
     st.write('---')
-    st.write("🎯💡 Welcome to Salary Classification Deployment! We specialize in providing advanced salary classification solutions that help individuals understand their income better. Our data-driven approach combines analytics, machine learning, and financial expertise to create customized salary classification models tailored to your needs. By implementing salary classification, you can gain insights into your income level, plan your finances effectively, and make informed decisions about your career and lifestyle. ✨🚀 Partner with us to unlock the power of salary classification and take control of your financial future. Contact us today to learn more. 📞📧")
+    st.write("🎯💡 Welcome to cancer  Classification Deployment! We specialize in providing advanced cancer classification solutions that help individuals understand their disease better. Our data-driven approach combines analytics.  ✨🚀 Partner with us to unlock the power of cancer classification . Contact us today to learn more. 📞📧")
     st.image("5355919-removebg-preview.png")
 
 
